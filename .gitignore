@@ -1,0 +1,4 @@
+#Files to be ignored by Git
+
+#Mac Specific files/directories
+.DS_Store
