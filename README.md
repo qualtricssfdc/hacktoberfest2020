@@ -147,7 +147,7 @@ To start off, we are going to make two branches off of the branch we made in tut
 ```
 git checkout *<name of your branch>*
 ```
-Using the commands learned in tutorial 1, make two branches off of the personal branch you made, one following the naming convention ```tutorial2-YOURNAME``` and another one folling the naming convention ```tutorial2-YOURNAME-AdditionalChanges```. Checkout that first new branch so that we can start making some changes!
+Using the commands learned in tutorial 1, make two branches off of the personal branch you made, one following the naming convention ```YOURNAME-tutorial2``` and another one folling the naming convention ```YOURNAME-tutorial2-AdditionalChanges```. Checkout that first new branch so that we can start making some changes!
 
 Let's spruce up that personal page that we made in the first tutorial. If you didn't decide to flex hard on all of us by getting fancy with that page in the first tutorial, your page should be something similar to this:
 ![file before changes](images/tutorial2/tutorial2-before-changes.png)
@@ -176,23 +176,23 @@ Go ahead and commit those changes so that we can get to merging them in with you
 
 Switch back to your personal branch (should just be called your name) so that we can practice merging. Just for some context, when we made the merge request last time in GitHub, that actually was just a formalized process for merging branches together. When there aren't specific access restrictions placed on a branch, you can actually just merge any branches you want and the just push those changes straight to the remote server without needing to go through the merge request process. That's kind of a no-no, though, when working with a team, since you may just end up destroying someone else's work. However, even if you are working on a shared git repository, if you are the *only* one working on a branch, there really isn't much concern over what you do and do not merge; you can only hurt yourself, not anyone else! So, to practice handling merge conflicts, we will force the conflict manually so that we can easily (and safely) see the process.
 
-Let's merge this ```tutorial2-YOURNAME``` branch into the personal branch we made in the last tutorial. Switch to that personal branch, either via VSCode or the command line. Once there, we can do the merge in a couple of ways. VSCode does offer a way to do merging via the Git Changes tab on the left hand side of VSCode, third icon down. you should be able to click the ellipsis (three dots) icon in the top right of that pane and click the ```Branch -> Merge Branch...``` option: 
+Let's merge this ```YOURNAME-tutorial2``` branch into the personal branch we made in the last tutorial. Switch to that personal branch, either via VSCode or the command line. Once there, we can do the merge in a couple of ways. VSCode does offer a way to do merging via the Git Changes tab on the left hand side of VSCode, third icon down. you should be able to click the ellipsis (three dots) icon in the top right of that pane and click the ```Branch -> Merge Branch...``` option: 
 ![merge branch in VSCode](images/tutorial2/tutorial2-merge-branch-vscode.png)
 Alternatively, you could run the following command, substituting in your actual name:
 ```
-git merge tutorial2-YOURNAME
+git merge YOURNAME-tutorial2
 ```
 
 This should merge that branch we just made style changes to in with our personal branch. If you did everything right, it should just auto-merge. Awesome!
 
-Switch back into that *second* branch we made earlier called ```tutorial2-YOURNAME-AdditionalChanges```.
+Switch back into that *second* branch we made earlier called ```YOURNAME-tutorial2-AdditionalChanges```.
 
 Because this branch was created *before* we made those style changes and committed them to your personal branch, you should be seeing the old version of the file without any fancy styling or anything. In this hypothetical example, let's imagine that you were working on this project with someone else and you both were assigned to make changes to this same page for different reasons. While your changes may be completely unrelated, they could still be modifying the same file in different ways. To test what it looks like when two people branch off from the same branch and then merge back into it, we are going to make a simple edit to this file. Let's just change the text that we previously had written in there to a different message. Here's what I ended up doing:
 ![additional changes](images/tutorial2/tutorial2-additional-changes-branch.png)
 
 Save that file, commit it, and then switch back to the personal branch.
 
-Now, repeat the process that you went through to merge that ```tutorial2-YOURNAME``` branch in with your personal branch, but this time, make sure to merge the ```tutorial2-YOURNAME-AdditionalChanges``` instead.
+Now, repeat the process that you went through to merge that ```YOURNAME-tutorial2``` branch in with your personal branch, but this time, make sure to merge the ```YOURNAME-tutorial2-AdditionalChanges``` instead.
 
 Once you've ran the command or hit the button in VSCode, you should be confronted with a ..... **MERGE CONFLICT**. Oh no!
 
