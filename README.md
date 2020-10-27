@@ -213,7 +213,7 @@ To wrap up this tutorial, submit another merge request in GitHub to have these n
 
 Tutorial 2 outlined how to fix merge conflicts. Unfortunately merge conflicts are extremely common, and the more tools you have in your kit to solve them, the better. This is why we will go over another tool to solve merge conflicts - rebasing. This last tutorial will outline what a rebase is, and when it is useful. To give a super high-level definition of what a rebase is, a rebase is used to solve merge conflicts or clean up the history of your branch or development. If you want a deeper definition or understanding of it, I'd recommend Googling "git rebase" and reading a few different articles. It is kind of a confusing concept, so we will do our best to illustrate in a simple way how it works.
 
-Imagine for just a second that you've been given a ticket to work on. We will pretend that you are supposed to change something on the CPQ landing page. And you've branched off of the main branch and begin development on your new feature (pretend you named your branch "rob", see illustration below). It is not uncommon at all that during your development, other people make and merge changes that update the branch you will be merging into. Lets say someone else does some additional development on the CPQ landing page (on the "new feature" branch in the illustration below) and merges it into master before you can finish what you're doing.
+Imagine for just a second that you've been given a ticket to work on. We will pretend that you are supposed to change something on the CPQ landing page. And you've branched off of the main branch and begin development on your new feature (pretend you named your branch "rob", see illustration below). It is not uncommon at all that during your development, other people make and merge changes that update the branch you will be merging into. Lets say someone else does some additional development on the CPQ landing page (on the "new feature" branch in the illustration below) and merges it into main before you can finish what you're doing.
 
 ![need a rebase](images/tutorial3/rebase-needed.png)
 
@@ -235,6 +235,7 @@ git pull origin main
 ```
 
 Next, checkout the new branch created for this last tutorial named tutorial3
+
 *what this command is doing is pulling the remote tutorail3 branch and creating (and renaming) it as a new branch on your local machine*
 ```
 git checkout -b YOURNAME-tutorial3 origin/tutorial3
@@ -253,7 +254,7 @@ Navigate to GitHub and attempt to do a new Pull Request (See Tutorial 1 if you f
 
 First off, we're going to perform the rebase locally and then push the updated branch to GitHub for a new pull request. Make sure you are on your development branch, it should be called YOURNAME-tutorial3. Next, update your main branch and rebase your current branch off of the updated main all in 1 command with the following: (Keep in mind, there is more than 1 way to do this, Google is your friend when in doubt)
 ```
-git pull --rebase origin master
+git pull --rebase origin main
 ```
 
 This should cause a merge conflict. please refer back to this graphic to understand what is going on:
@@ -261,9 +262,17 @@ This should cause a merge conflict. please refer back to this graphic to underst
 
 You basically ripped your branch off of the previous 'main' location and rebased them onto a future commit (which has updated changes that are conflicting with those on your branch). This is good - this allows us to the easy ability to fix any conflicts locally (and test it!) before submitting a pull request that we are certain won't have merge conflicts.
 
-Refer back to tutorial 2 if you need help fixing your conflicts. If you are still stuck, try googling. Still stuck, reach out to Rob or Tanner for some help!
+Refer back to tutorial 2 if you need help fixing your conflicts directly in VSCode. If you are still stuck, try Googling. Still stuck, reach out to Rob or Tanner for some help!
 
-Now you should be able to commit your last changes and push them to GitHub. After this is complete, please submit a new pull request without merge conflicts.
+Once you have resolved your merge conflicts, you need to complete the rebase command with the following:
+```
+git add .                   #Adds all edited files to staging
+git rebase --continue       #Just reach out to Rob or Tanner if you get stuck on this step
+```
+
+Now you should now be able to push your changes to GitHub. After this is complete, it will automatically update your pull request and should be ok to merge by an approver!
+
+
 
 *NOTE ---- These tutorials are only designed to get you 3 pull requests, if you want the free Hacktoberfest T-Shirt, make sure you submit another pull request and get it merged before October 31st. Please feel free to make an improvement to our existing site and make another pull request outside of these tutorials. If you are really feeling brave, try finding an open-sourced project on GitHub and doing a small contribution there! You can check your hacktoberfest progress with the following site:
 https://hacktoberfest.digitalocean.com/profile
